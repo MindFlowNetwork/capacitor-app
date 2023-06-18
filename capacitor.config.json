@@ -1,5 +1,5 @@
 {
-  "appId": "com.rezox.capacitor",
+  "appId": "com.mindflow.capacitor",
   "appName": "CapTest",
   "bundledWebRuntime": false,
   "webDir": "dist",
