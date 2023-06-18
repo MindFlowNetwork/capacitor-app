@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Awesome Capacitor App</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <!-- <script
+      type="module"
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+    ></script> -->
+
+    <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <meta name="theme-color" content="#31d53d" />
+  </head>
+  <body>
+    <img draggable=false id='logo' src="assets/imgs/logrocket.png" />
+    <script type="module">
+      import { Camera } from '@capacitor/camera';
+
+      // import { createApp } from 'https://unpkg.com/petite-vue?module'
+      import { createApp } from 'petite-vue'
+
+      function Counter(props) {
+        return {
+          $template: '#counter-template',
+          count: props.initialCount,
+          inc() {
+            this.count++
+          },
+          async camera(){
+            console.log( '[camera]' );
+            try {
+              
+              const photo = await Camera.getPhoto({
+                resultType: 'uri',
+              });
+              // console.log( `result from Camera.getPhoto:`, photo );
+
+              const image = document.querySelector('#camera_image');
+              if (!image) {
+                return;
+              }
+
+              image.src = photo.webPath;
+            } catch (e) {
+              console.warn('User cancelled', e);
+            }
+          }
+        }
+      }
+    
+      createApp({
+        Counter
+      }).mount()
+
+      
+    </script>
+    
+    <template id="counter-template">
+      My count is {{ count }}
+      <button @click="inc">++</button>
+      &nbsp; 
+      <button @click="camera">CAMERA</button>
+    </template>
+    
+    <!-- reuse it -->
+    <br />
+    <hr />
+    <div v-scope="Counter({ initialCount: 1 })"></div>
+    <div v-scope="Counter({ initialCount: 2 })"></div>
+
+    
+    <img draggable=false id="camera_image">
+<!-- 
+    <capacitor-welcome></capacitor-welcome>
+
+    <script src="./js/capacitor-welcome.js" type="module"></script> -->
+  </body>
+</html>
