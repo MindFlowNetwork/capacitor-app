@@ -29,7 +29,7 @@ The first time, we open it directly in XCode to set up the signing stuff - open 
 npx cap run ios
 ```
 
-Now we want to add the various permissions to allow the camera to operate so edit the *ios/App/App/Info.plist* file and add this inside the:
+Now we want to add the various permissions to allow the camera to operate so edit the *ios/App/App/Info.plist* file and add this inside the *</dict>*:
 ```xml
         <key>NSPhotoLibraryUsageDescription</key>
         <string>Camera will be used for testing.</string>
