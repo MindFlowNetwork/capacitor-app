@@ -8,7 +8,7 @@ Install node (and brew if you're on a Mac).
 
 Now let's build the capacitor app:
 ```bash
-npm init @capacitor/app capacitor-app --name capApp --app-id capapp.mindflow.network
+npm init @capacitor/app capacitor-app --name capApp --app-id network.mindflow.captest
 ```
 
 Now copy over the *src* contents to it.

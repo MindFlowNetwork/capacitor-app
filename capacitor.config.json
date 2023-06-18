@@ -1,5 +1,5 @@
 {
-  "appId": "com.mindflow.capacitor",
+  "appId": "network.mindflow.captest",
   "appName": "CapTest",
   "bundledWebRuntime": false,
   "webDir": "dist",
